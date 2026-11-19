@@ -33,7 +33,7 @@ func (r *RedisClient) Set(ctx context.Context, key string, val any, ttl time.Dur
 func (r *RedisClient) Get(ctx context.Context, key string) (interface{}, error) {
 	val, err := r.rdb.Get(ctx, key).Result()
 	if err != nil {
-		return val, err
+		return nil, err
 	}
-	return nil, err
+	return val, nil
 }
